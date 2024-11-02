@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1tqh21lid516"]
+[gd_scene load_steps=5 format=3 uid="uid://b1tqh21lid516"]
 
 [ext_resource type="Script" path="res://scripts/UIs/game_ui.gd" id="1_yuabj"]
+[ext_resource type="Texture2D" uid="uid://df56f31pfuq3g" path="res://assets/PixelHealthBack.png" id="2_sqsal"]
+[ext_resource type="Texture2D" uid="uid://dn70euwejjyhi" path="res://assets/PixelHealthBorder.png" id="3_ke5vx"]
+[ext_resource type="Texture2D" uid="uid://bx4yrcngkanio" path="res://assets/PixelHealthFill.png" id="4_8axe7"]
 
 [node name="GameUi" type="Control"]
 layout_mode = 3
@@ -21,3 +24,23 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 35
 text = "Time : 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 154.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+min_value = 10.0
+max_value = 110.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_sqsal")
+texture_over = ExtResource("3_ke5vx")
+texture_progress = ExtResource("4_8axe7")

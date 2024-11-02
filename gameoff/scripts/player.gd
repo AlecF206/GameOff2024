@@ -2,30 +2,51 @@ extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var ui: Control = $CanvasLayer/GameUi
 
-@export var speed = 400.0:
+@export_category("movment")
+@export var acceleration := 100
+@export var decceleration := 100
+@export var speed = 400.0
+@export var jump_velocity = -650.0
+@export var gravity := Vector2(0, 980)
+@export var max_fall_speed := 1000
+@export var jump_buffer_time := 0.2
+
+var max_health := 100.0
+
+var jump_buffer_counter := 0.0
+
+var health := 100.0:
 	set(val):
-		speed = val
-		print(val)
-var JUMP_VELOCITY = -650.0
+		health = val
+		ui.set_health(val)
+		print(health)
 
+func _ready() -> void:
+	health = max_health
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += gravity * delta
+		if velocity.y > max_fall_speed:
+			velocity.y = max_fall_speed
 
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() or !coyote_timer.is_stopped():
-			velocity.y = JUMP_VELOCITY
+			velocity.y = jump_velocity
 			sprite.play("Jump")
 
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
 		if sprite.animation == "Idle":
 			sprite.play("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, decceleration * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.x == 0 and sprite.animation == "Run":
 			sprite.play("Idle")
 	if velocity.x > 0 and sprite.flip_h:
@@ -45,3 +66,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		sprite.play("Run")
 	else:
 		sprite.play("Idle")
+
+func take_damage(dmg: float):
+	health -= dmg
+	sprite.play("Hurt")

@@ -599,10 +599,13 @@ animations = [{
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_yq2yk")
+acceleration = 800
+decceleration = 1200
+gravity = Vector2(0, 1000)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ruu0c")
-animation = &"Jump"
+animation = &"Hurt"
 autoplay = "Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -610,6 +613,7 @@ visible = false
 polygon = PackedVector2Array(-6, -9, 3, -9, 5, -7, 5, 2, 6, 2, 6, 3, 5, 5, 3, 6, 4, 7, 4, 8, -5, 8, -6, 7, -8, 7, -9, 6, -9, 4, -8, 3, -8, -7)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
