@@ -3,7 +3,10 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 
-var SPEED = 500.0
+@export var speed = 400.0:
+	set(val):
+		speed = val
+		print(val)
 var JUMP_VELOCITY = -650.0
 
 
@@ -18,11 +21,11 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 		if sprite.animation == "Idle":
 			sprite.play("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.x == 0 and sprite.animation == "Run":
 			sprite.play("Idle")
 	if velocity.x > 0 and sprite.flip_h:

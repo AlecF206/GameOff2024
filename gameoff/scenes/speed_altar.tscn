@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dss2cd5nrow1k"]
+
+[ext_resource type="Texture2D" uid="uid://20jkol60sy6o" path="res://assets/AltarBrick.png" id="1_0b4wk"]
+[ext_resource type="Script" path="res://scripts/speed_altar.gd" id="1_lgxga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b70c6"]
+size = Vector2(242, 204)
+
+[sub_resource type="Gradient" id="Gradient_3eooe"]
+colors = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sf1mb"]
+gradient = SubResource("Gradient_3eooe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_it4xd"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 25.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+color_initial_ramp = SubResource("GradientTexture1D_sf1mb")
+
+[node name="SpeedAltar" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lgxga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_0b4wk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_b70c6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-16, -8)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_it4xd")
+lifetime = 2.0
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(16, -8)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_it4xd")
+lifetime = 2.0
