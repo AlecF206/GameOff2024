@@ -1,0 +1,16 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://bts04jfdkaoek"]
+
+[ext_resource type="Texture2D" uid="uid://dypec33thw3cc" path="res://assets/AmuletOfTime/clock0.png" id="1_i1oq3"]
+[ext_resource type="Texture2D" uid="uid://dgbnfq4d6lsq6" path="res://assets/AmuletOfTime/clock1.png" id="2_26sxy"]
+[ext_resource type="Texture2D" uid="uid://cyhdamqvt5k81" path="res://assets/AmuletOfTime/clock2.png" id="3_66acv"]
+[ext_resource type="Texture2D" uid="uid://dlq2ryfwhajkp" path="res://assets/AmuletOfTime/clock3.png" id="4_ha5ev"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_i1oq3")
+frame_1/texture = ExtResource("2_26sxy")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_66acv")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_ha5ev")
+frame_3/duration = 1.0

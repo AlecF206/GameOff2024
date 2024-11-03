@@ -2,6 +2,10 @@ extends Control
 
 @onready var time_label: Label = $Time
 @onready var health_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
+@onready var clock_rect: TextureRect = $HBoxContainer/Clock
+
+const clock_black = preload("res://assets/AmuletOfTime/clock4.png")
+const clock = preload("res://resources/clock_animation.tres")
 
 var time := 0:
 	set(val):
@@ -18,6 +22,7 @@ var time := 0:
 var time_string := "00:00"
 
 func _ready() -> void:
+	Global.update_secrets.connect(set_parts)
 	set_timer()
 
 func set_timer():
@@ -28,3 +33,7 @@ func set_timer():
 
 func set_health(hp: float):
 	health_bar.value = hp + 10
+
+func set_parts():
+	if Global.time_parts["clock"]:
+		clock_rect.texture = clock

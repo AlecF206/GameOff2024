@@ -601,7 +601,6 @@ collision_layer = 2
 script = ExtResource("1_yq2yk")
 acceleration = 1000
 decceleration = 1200
-jump_velocity = -500.0
 gravity = Vector2(0, 1000)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

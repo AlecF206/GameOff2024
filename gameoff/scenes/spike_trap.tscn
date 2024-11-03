@@ -100,6 +100,7 @@ frame = 9
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.375, -4.125)
 shape = SubResource("RectangleShape2D_kvumc")
 
