@@ -11,6 +11,7 @@ func _input(event: InputEvent) -> void:
 	if player in get_overlapping_bodies() and event.is_action_pressed("activate") and !activated:
 		player.speed += 100
 		activated = true
+		Global.secrets_found += 1
 		$AnimationPlayer.play("activate")
 		for i in particles:
 			i.emitting = false

@@ -30,8 +30,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -48.0
-offset_right = 154.0
+offset_top = -72.0
+offset_right = 226.0
 grow_vertical = 0
 theme_override_constants/margin_left = 10
 

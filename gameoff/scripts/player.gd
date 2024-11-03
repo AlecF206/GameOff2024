@@ -27,12 +27,18 @@ func _ready() -> void:
 	health = max_health
 
 func _physics_process(delta: float) -> void:
+	if jump_buffer_counter > 0:
+		jump_buffer_counter -= delta
+
 	if not is_on_floor():
 		velocity += gravity * delta
 		if velocity.y > max_fall_speed:
 			velocity.y = max_fall_speed
 
 	if Input.is_action_just_pressed("jump"):
+		jump_buffer_counter = jump_buffer_time
+
+	if jump_buffer_counter > 0:
 		if is_on_floor() or !coyote_timer.is_stopped():
 			velocity.y = jump_velocity
 			sprite.play("Jump")

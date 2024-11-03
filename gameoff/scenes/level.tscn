@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://6wg1xi2yrns5"]
+[gd_scene load_steps=10 format=4 uid="uid://6wg1xi2yrns5"]
 
 [ext_resource type="Texture2D" uid="uid://ccs4xa8vottg1" path="res://assets/PlatformerDungeonSet.png" id="1_2xk2h"]
 [ext_resource type="PackedScene" uid="uid://xa0sifmfniyq" path="res://scenes/player.tscn" id="2_svmhi"]
 [ext_resource type="PackedScene" uid="uid://tir36f347sf6" path="res://scenes/jumper_trap.tscn" id="3_v5l1n"]
 [ext_resource type="PackedScene" uid="uid://c5atmep03w6bv" path="res://scenes/spike_trap.tscn" id="4_e0ryh"]
+[ext_resource type="PackedScene" uid="uid://tu6tcmfyhqde" path="res://scenes/moving_platform.tscn" id="5_1hd7q"]
 [ext_resource type="PackedScene" uid="uid://dss2cd5nrow1k" path="res://scenes/speed_altar.tscn" id="5_dvarl"]
+[ext_resource type="PackedScene" uid="uid://b4sadkto7mfgt" path="res://scenes/chest.tscn" id="7_x57sp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5m3dd"]
 texture = ExtResource("1_2xk2h")
@@ -197,6 +199,15 @@ player = NodePath("../../Player")
 position = Vector2(-2240, -592)
 player = NodePath("../../Player")
 
-[node name="SpeedAltar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dvarl")]
+[node name="MovingPlatform" parent="Traps" instance=ExtResource("5_1hd7q")]
+end_wait_time = 1
+
+[node name="Secrets" type="Node2D" parent="."]
+
+[node name="SpeedAltar" parent="Secrets" node_paths=PackedStringArray("player") instance=ExtResource("5_dvarl")]
 position = Vector2(-800, 416)
-player = NodePath("../Player")
+player = NodePath("../../Player")
+
+[node name="Chest" parent="Secrets" instance=ExtResource("7_x57sp")]
+position = Vector2(-2935, -879)
+flip = true
