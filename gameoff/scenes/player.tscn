@@ -596,7 +596,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(3.75, 3.75)
 collision_layer = 2
 script = ExtResource("1_yq2yk")
 acceleration = 1000

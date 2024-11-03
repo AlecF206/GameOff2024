@@ -21,7 +21,6 @@ var health := 100.0:
 	set(val):
 		health = val
 		ui.set_health(val)
-		print(health)
 
 func _ready() -> void:
 	health = max_health
