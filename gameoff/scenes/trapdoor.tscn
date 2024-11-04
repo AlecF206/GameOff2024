@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ngfnxba2alxx"]
+
+[ext_resource type="Script" path="res://scripts/trapdoor.gd" id="1_5uokh"]
+[ext_resource type="Texture2D" uid="uid://ckv7cgv20hsg2" path="res://assets/Trapdoor.png" id="1_ckpqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsint"]
+atlas = ExtResource("1_ckpqd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thr6q"]
+atlas = ExtResource("1_ckpqd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phthv"]
+atlas = ExtResource("1_ckpqd")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijgjl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsint")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thr6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phthv")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1nh8"]
+size = Vector2(128, 20)
+
+[node name="Trapdoor" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_5uokh")
+
+[node name="left" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ijgjl")
+animation = &"open"
+
+[node name="right" type="AnimatedSprite2D" parent="."]
+position = Vector2(96, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ijgjl")
+animation = &"open"
+flip_h = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(64, 10)
+shape = SubResource("RectangleShape2D_s1nh8")

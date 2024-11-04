@@ -8,7 +8,7 @@ var secrets_found := 0:
 		update_secrets.emit()
 		update_time_scale()
 
-var time_parts := {"clock": false}
+var time_parts := {"clock": false, "heart": false}
 
 func update_time_scale():
 	var parts_collected := 0

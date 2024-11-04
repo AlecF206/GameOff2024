@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4rbnbmo80iby"]
+
+[ext_resource type="Shader" path="res://resources/outline.gdshader" id="1_1ogjk"]
+[ext_resource type="Texture2D" uid="uid://sr48ls0d4dal" path="res://assets/ButtonPlatformer.png" id="1_7lrll"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_jp71t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwowi"]
+shader = ExtResource("1_1ogjk")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.0
+shader_parameter/frequency = 15.0
+shader_parameter/phase_speed = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37u8k"]
+atlas = ExtResource("1_7lrll")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mluv"]
+atlas = ExtResource("1_7lrll")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dycj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37u8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mluv")
+}],
+"loop": false,
+"name": &"Press",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38wim"]
+size = Vector2(21.5, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2rmp"]
+radius = 383.131
+
+[node name="Button" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jp71t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jwowi")
+position = Vector2(8, 0)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dycj7")
+animation = &"Press"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(26, 2)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_38wim")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = -56.0
+offset_right = 40.0
+offset_bottom = -7.0
+text = "left click
+to press
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HighlightArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighlightArea"]
+visible = false
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_p2rmp")
+
+[connection signal="body_entered" from="HighlightArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="HighlightArea" to="." method="_on_body_exited"]
