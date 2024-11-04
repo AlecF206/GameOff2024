@@ -1,11 +1,17 @@
-extends StaticBody2D
+extends Area2D
 
-@export var move_distance := Vector2(500, 0)
-@export var end_wait_time := 0.0
-@export var move_time := 3.0
+@export var damage := 25
+@export var moving := false
+@export var move_distance : Vector2
+@export var end_wait_time := 0
+@export var move_time := 3
+
+func _on_body_entered(body: Node2D) -> void:
+	body.take_damage(damage)
 
 func _ready() -> void:
-	move()
+	if moving:
+		move()
 
 func move():
 	var tween = get_tree().create_tween()

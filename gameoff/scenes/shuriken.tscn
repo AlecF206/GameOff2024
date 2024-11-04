@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgbvdxqd6n38b"]
+
+[ext_resource type="Texture2D" uid="uid://c1t7tne5mn8ue" path="res://assets/DungeonTraps/Suriken.png" id="1_4hgqy"]
+[ext_resource type="Script" path="res://scripts/shuriken.gd" id="1_735bp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8sjf"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqgxp"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijr7p"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odjmh"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4kgm"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4ier"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi31v"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axohi"]
+atlas = ExtResource("1_4hgqy")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxrlo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8sjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqgxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijr7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odjmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4kgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4ier")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi31v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axohi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5d6f"]
+radius = 17.0294
+
+[node name="Shuriken" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_735bp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mxrlo")
+autoplay = "default"
+frame_progress = 0.627277
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_s5d6f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
