@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 
 	if jump_buffer_counter > 0:
 		if is_on_floor() or is_on_wall() or !coyote_timer.is_stopped():
-			velocity.y = jump_velocity
+			velocity.y += jump_velocity
 			jump_buffer_counter = 0
 			sprite.play("Jump")
 

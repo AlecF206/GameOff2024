@@ -3,6 +3,9 @@ extends Control
 @onready var time_label: Label = $Time
 @onready var health_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
 @onready var clock_rect: TextureRect = $HBoxContainer/Clock
+@onready var secret_count: Label = $HBoxContainer/VBoxContainer/SecretCount
+
+@export var max_secrets := 4
 
 const clock_black = preload("res://assets/AmuletOfTime/clock4.png")
 const clock = preload("res://resources/clock_animation.tres")
@@ -23,7 +26,9 @@ var time_string := "00:00"
 
 func _ready() -> void:
 	Global.update_secrets.connect(set_parts)
+	Global.update_secrets.connect(set_secrets)
 	set_timer()
+	set_secrets()
 
 func set_timer():
 	time += 1
@@ -37,3 +42,6 @@ func set_health(hp: float):
 func set_parts():
 	if Global.time_parts["clock"]:
 		clock_rect.texture = clock
+
+func set_secrets():
+	secret_count.text = str(Global.secrets_found) + "/" + str(max_secrets)
