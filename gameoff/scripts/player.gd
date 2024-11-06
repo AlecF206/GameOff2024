@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var max_fall_speed := 1000
 @export var jump_buffer_time := 0.2
 
+@export var wall_climb := false
 var max_health := 100.0
 
 var jump_buffer_counter := 0.0
@@ -37,8 +38,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer_counter = jump_buffer_time
 
-	if jump_buffer_counter > 0:
-		if is_on_floor() or is_on_wall() or !coyote_timer.is_stopped():
+	if jump_buffer_counter > 0 and velocity.y >= 0:
+		if is_on_floor() or !coyote_timer.is_stopped() or is_on_wall() and wall_climb:
 			velocity.y += jump_velocity
 			jump_buffer_counter = 0
 			sprite.play("Jump")
