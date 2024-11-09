@@ -12,7 +12,7 @@ const clock = preload("res://resources/clock_animation.tres")
 
 var time := 0:
 	set(val):
-		time = val
+		time = clamp(val, 0, 10000000)
 		var minutes = (floor(val / 60.0))
 		var seconds = str(val - minutes * 60)
 		if int(seconds) < 10:

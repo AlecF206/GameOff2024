@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yuabj")
-max_secrets = 6
+max_secrets = 10
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 1

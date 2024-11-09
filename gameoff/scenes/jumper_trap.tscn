@@ -75,7 +75,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cw8ge"]
-size = Vector2(19, 7)
+size = Vector2(19, 10.5)
 
 [node name="JumperTrap" type="Area2D"]
 scale = Vector2(4, 4)
@@ -90,7 +90,7 @@ animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-0.5, -0.5)
+position = Vector2(-0.5, -2.25)
 shape = SubResource("RectangleShape2D_cw8ge")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

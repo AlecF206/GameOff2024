@@ -602,6 +602,7 @@ script = ExtResource("1_yq2yk")
 acceleration = 1000
 decceleration = 1200
 gravity = Vector2(0, 1000)
+max_fall_speed = 2000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ruu0c")
