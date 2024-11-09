@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://6wg1xi2yrns5"]
+[gd_scene load_steps=17 format=4 uid="uid://6wg1xi2yrns5"]
 
 [ext_resource type="Texture2D" uid="uid://ccs4xa8vottg1" path="res://assets/PlatformerDungeonSet.png" id="1_2xk2h"]
 [ext_resource type="PackedScene" uid="uid://xa0sifmfniyq" path="res://scenes/player.tscn" id="2_svmhi"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6pycmn0hwk5l" path="res://scenes/ceiling_spikes.tscn" id="9_jmwyq"]
 [ext_resource type="PackedScene" uid="uid://dvomstd0radtx" path="res://scenes/spider_altar.tscn" id="11_scud8"]
 [ext_resource type="PackedScene" uid="uid://bkkygp7oemkqr" path="res://scenes/coin.tscn" id="13_84lik"]
+[ext_resource type="PackedScene" uid="uid://dxr5i82wfkif0" path="res://scenes/health_pot.tscn" id="14_ys3lc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5m3dd"]
 texture = ExtResource("1_2xk2h")
@@ -185,7 +186,7 @@ sources/0 = SubResource("TileSetAtlasSource_5m3dd")
 
 [node name="Player" parent="." instance=ExtResource("2_svmhi")]
 z_index = 1
-position = Vector2(-228, 600)
+position = Vector2(301, -2049)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -347,5 +348,8 @@ position = Vector2(-2976, -608)
 
 [node name="Coin3" parent="Secrets" instance=ExtResource("13_84lik")]
 position = Vector2(2144, -224)
+
+[node name="HealthPot" parent="Secrets" instance=ExtResource("14_ys3lc")]
+position = Vector2(1152, -2048)
 
 [connection signal="pressed" from="Traps/Button" to="Traps/Trapdoor" method="open_door"]

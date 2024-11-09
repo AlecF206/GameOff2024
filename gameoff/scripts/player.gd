@@ -20,7 +20,7 @@ var jump_buffer_counter := 0.0
 
 var health := 100.0:
 	set(val):
-		health = val
+		health = clamp(val, 0, 100)
 		ui.set_health(val)
 
 func _ready() -> void:
