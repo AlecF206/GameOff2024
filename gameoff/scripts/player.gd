@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var ui: Control = $CanvasLayer/GameUi
+@onready var camera: Camera2D = $Camera2D
+@onready var lose_message: RichTextLabel = $CanvasLayer/RichTextLabel
 
 @export_category("movment")
 @export var acceleration := 100
@@ -81,19 +83,24 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		sprite.play("Idle")
 
 func reset_player() -> void:
-	var Level = get_parent()
-	global_position = Level.level_start_pos.position
+	var level = get_parent()
+	global_position = level.level_start_pos.position
 	can_control= true
 	visible = true
 	health = max_health
+	lose_message.hide()
 
 func take_damage(dmg: float):
 	health -= dmg
 	sprite.play("Hurt")
-	if health < 1:
+	if health <= 0:
 		print("player is dead")
 		visible = false
-		can_control=false
+		can_control = false
+		
+		var tween = create_tween()
+		tween.tween_property(camera, "global_position", get_parent().level_start_pos.position, 2.5).set_ease(Tween.EASE_OUT)
+		lose_message.show()
 		
 		await get_tree().create_timer(3).timeout
 		reset_player()
