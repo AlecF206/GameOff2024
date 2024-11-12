@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -16,6 +17,8 @@ extends CharacterBody2D
 @export var wall_climb := false
 var max_health := 100.0
 
+var can_control: bool = true 
+
 var jump_buffer_counter := 0.0
 
 var health := 100.0:
@@ -27,6 +30,8 @@ func _ready() -> void:
 	health = max_health
 
 func _physics_process(delta: float) -> void:
+	if not can_control:return
+	
 	if jump_buffer_counter > 0:
 		jump_buffer_counter -= delta
 
@@ -61,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0 and !sprite.flip_h:
 		sprite.flip_h = true
 
+
 	var was_on_floor = is_on_floor()
 
 	move_and_slide()
@@ -74,6 +80,20 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	else:
 		sprite.play("Idle")
 
+func reset_player() -> void:
+	var Level = get_parent()
+	global_position = Level.level_start_pos.position
+	can_control= true
+	visible = true
+	health = max_health
+
 func take_damage(dmg: float):
 	health -= dmg
 	sprite.play("Hurt")
+	if health < 1:
+		print("player is dead")
+		visible = false
+		can_control=false
+		
+		await get_tree().create_timer(3).timeout
+		reset_player()

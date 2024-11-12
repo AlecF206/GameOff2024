@@ -395,10 +395,10 @@ position = Vector2(-1000, -1288)
 player = NodePath("../../Player")
 
 [node name="CeilingSpikes" parent="Traps" instance=ExtResource("9_jmwyq")]
-position = Vector2(461, -2184)
+position = Vector2(480, -2184)
 
 [node name="CeilingSpikes2" parent="Traps" instance=ExtResource("9_jmwyq")]
-position = Vector2(745, -2178)
+position = Vector2(747, -2184)
 
 [node name="Secrets" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
