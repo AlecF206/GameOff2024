@@ -84,7 +84,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func reset_player() -> void:
 	var level = get_parent()
-	global_position = level.level_start_pos.position
+	global_position = level.level_start_pos.global_position
+	camera.global_position = global_position
 	can_control= true
 	visible = true
 	health = max_health
@@ -93,13 +94,13 @@ func reset_player() -> void:
 func take_damage(dmg: float):
 	health -= dmg
 	sprite.play("Hurt")
+	LabelSpawns.display_number(dmg, global_position, 2)
 	if health <= 0:
-		print("player is dead")
 		visible = false
 		can_control = false
 		
 		var tween = create_tween()
-		tween.tween_property(camera, "global_position", get_parent().level_start_pos.position, 2.5).set_ease(Tween.EASE_OUT)
+		tween.tween_property(camera, "global_position", get_parent().level_start_pos.global_position, 2.5).set_ease(Tween.EASE_OUT)
 		lose_message.show()
 		
 		await get_tree().create_timer(3).timeout

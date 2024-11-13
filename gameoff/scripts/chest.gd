@@ -11,8 +11,10 @@ func _ready() -> void:
 
 func _on_body_entered(_body: Node2D) -> void:
 	sprite.play("GoldOpen")
+	LabelSpawns.display_label("+25% game speed", global_position)
 	$CollisionShape2D.queue_free()
-	Global.time_parts[part] = true
+	Engine.time_scale += 0.25
+	#Global.time_parts[part] = true
 	Global.secrets_found += 1
 	await sprite.animation_finished
 	queue_free()

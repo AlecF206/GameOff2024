@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yuabj")
-max_secrets = 10
+max_secrets = 11
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
@@ -66,6 +66,7 @@ theme_override_font_sizes/font_size = 35
 text = "3/3"
 
 [node name="Clock" type="TextureRect" parent="HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("5_rfsux")

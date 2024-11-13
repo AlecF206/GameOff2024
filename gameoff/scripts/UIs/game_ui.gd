@@ -25,7 +25,6 @@ var time := 0:
 var time_string := "00:00"
 
 func _ready() -> void:
-	Global.update_secrets.connect(set_parts)
 	Global.update_secrets.connect(set_secrets)
 	set_timer()
 	set_secrets()
@@ -38,10 +37,6 @@ func set_timer():
 
 func set_health(hp: float):
 	health_bar.value = hp + 10
-
-func set_parts():
-	if Global.time_parts["clock"]:
-		clock_rect.texture = clock
 
 func set_secrets():
 	secret_count.text = str(Global.secrets_found) + "/" + str(max_secrets)
