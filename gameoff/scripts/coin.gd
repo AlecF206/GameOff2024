@@ -6,4 +6,5 @@ func _on_body_entered(_body: Node2D) -> void:
 	LabelSpawns.display_label("-10 seconds", global_position)
 	Global.secrets_found += 1
 	ui.time -= 10
+	AudioManager.coin()
 	queue_free()

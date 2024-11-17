@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbae1whxsjmfm"
+path="res://.godot/imported/The Nightclub.ogg-007ebcb4a875d1344f7a88a5fe2a6f21.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/MysteriousTypeLoops/The Nightclub.ogg"
+dest_files=["res://.godot/imported/The Nightclub.ogg-007ebcb4a875d1344f7a88a5fe2a6f21.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

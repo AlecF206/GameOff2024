@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bks0jce77jdl5"
+path="res://.godot/imported/The Protagonist.ogg-d9c976b398d010b1f1e26ce1211adc61.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/MysteriousTypeLoops/The Protagonist.ogg"
+dest_files=["res://.godot/imported/The Protagonist.ogg-d9c976b398d010b1f1e26ce1211adc61.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

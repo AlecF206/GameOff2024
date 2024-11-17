@@ -8,3 +8,4 @@ func _on_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(.4).timeout
 	if body in get_overlapping_bodies():
 		body.velocity += velocity
+		$Jump.play()

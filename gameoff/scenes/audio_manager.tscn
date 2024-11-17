@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://3gtib875d5tx"]
+
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_p66u3"]
+[ext_resource type="AudioStream" uid="uid://3r6n15jb2h1v" path="res://assets/audio/PowerUp.wav" id="2_keian"]
+[ext_resource type="AudioStream" uid="uid://c3qon0kg7msn3" path="res://assets/audio/CoinGained.wav" id="3_vdvny"]
+[ext_resource type="AudioStream" uid="uid://cxboksxs0cqwn" path="res://assets/audio/MysteriousTypeLoops/Dystopian.ogg" id="4_6ttyx"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_p66u3")
+
+[node name="Heal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_keian")
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vdvny")
+
+[node name="Loop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6ttyx")

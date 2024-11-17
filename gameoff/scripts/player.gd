@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	if jump_buffer_counter > 0 and velocity.y >= 0:
 		if is_on_floor() or !coyote_timer.is_stopped() or is_on_wall() and wall_climb:
 			velocity.y += jump_velocity
+			$Jump.play()
 			jump_buffer_counter = 0
 			sprite.play("Jump")
 
@@ -95,6 +96,7 @@ func take_damage(dmg: float):
 	health -= dmg
 	sprite.play("Hurt")
 	LabelSpawns.display_number(dmg, global_position, 2)
+	$AudioStreamPlayer2D.play()
 	if health <= 0:
 		visible = false
 		can_control = false

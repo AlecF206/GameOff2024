@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/Global.gd"
 LabelSpawns="*res://addons/DamageNumbers.gd"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [display]
 

@@ -9,6 +9,7 @@ var activated := false
 
 func _input(event: InputEvent) -> void:
 	if player in get_overlapping_bodies() and event.is_action_pressed("activate") and !activated:
+		$AudioStreamPlayer2D.play()
 		player.speed += 100
 		activated = true
 		Global.secrets_found += 1

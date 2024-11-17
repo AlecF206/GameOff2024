@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://tir36f347sf6"]
+[gd_scene load_steps=15 format=3 uid="uid://tir36f347sf6"]
 
 [ext_resource type="Script" path="res://scripts/jumper_trap.gd" id="1_87yur"]
 [ext_resource type="Texture2D" uid="uid://cs1ijuiseqnkq" path="res://assets/DungeonTraps/Jumper.png" id="1_b5yg2"]
+[ext_resource type="AudioStream" uid="uid://bm4021pkxc2ia" path="res://assets/audio/Jump.wav" id="3_rakkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l85we"]
 atlas = ExtResource("1_b5yg2")
@@ -99,5 +100,10 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 polygon = PackedVector2Array(-7, 8, 6, 8, 6, 6, 2, 4, 2, 2, 9, 2, 10, 0, 9, -2, -10, -2, -11, 0, -10, 2, -3, 2, -3, 3.75, -7, 6)
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rakkl")
+volume_db = 10.0
+pitch_scale = 1.35
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
