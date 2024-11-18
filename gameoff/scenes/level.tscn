@@ -234,7 +234,7 @@ level_start_pos = NodePath("StartPos")
 
 [node name="Player" parent="." instance=ExtResource("2_svmhi")]
 z_index = 1
-position = Vector2(-144, 607)
+position = Vector2(-145, 608)
 decceleration = 1500
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c10hbrvao3fgx" path="res://assets/AmuletOfTime/clock4.png" id="5_rfsux"]
 
 [node name="GameUi" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yuabj")
-max_secrets = 11
+max_secrets = 12
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
@@ -70,3 +71,75 @@ visible = false
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("5_rfsux")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.5
+offset_top = -192.0
+offset_right = 201.5
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MilestoneScreen" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2/MilestoneScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "You Collected 
+3 secrets in 1:52!"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer2/MilestoneScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "username"
+
+[node name="Submit" type="Button" parent="HBoxContainer2/MilestoneScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Submit Score"
+
+[node name="Continue" type="Button" parent="HBoxContainer2/MilestoneScreen"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "continue"
+
+[node name="LeaderboardContainer" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/LeaderboardContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer2/LeaderboardContainer/HBoxContainer"]
+layout_mode = 2
+text = "3 secrets"
+
+[node name="Button2" type="Button" parent="HBoxContainer2/LeaderboardContainer/HBoxContainer"]
+layout_mode = 2
+text = "6 secrets"
+
+[node name="Button3" type="Button" parent="HBoxContainer2/LeaderboardContainer/HBoxContainer"]
+layout_mode = 2
+text = "9 secrets"
+
+[node name="Button4" type="Button" parent="HBoxContainer2/LeaderboardContainer/HBoxContainer"]
+layout_mode = 2
+text = "12 secrets"
+
+[node name="Leaderboard" type="VBoxContainer" parent="HBoxContainer2/LeaderboardContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer2/MilestoneScreen/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="HBoxContainer2/MilestoneScreen/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="HBoxContainer2/LeaderboardContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/LeaderboardContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer2/LeaderboardContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer2/LeaderboardContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
