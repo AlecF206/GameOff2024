@@ -10,11 +10,10 @@ func _ready() -> void:
 
 func spike():
 	sprite.play("Spike")
-	await get_tree().create_timer(.4).timeout
+	await get_tree().create_timer(.4, false).timeout
 	set_collision_mask_value(2, true)
-	#if player in get_overlapping_bodies():
-		#player.take_damage(damage)
-	await get_tree().create_timer(1.5).timeout
+	$AudioStreamPlayer2D.play()
+	await get_tree().create_timer(1.5, false).timeout
 	set_collision_mask_value(2, false)
 	spike()
 
