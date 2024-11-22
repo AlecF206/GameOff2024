@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var ui: Control = $CanvasLayer/GameUi
 @onready var camera: Camera2D = $Camera2D
 @onready var lose_message: RichTextLabel = $CanvasLayer/RichTextLabel
+@onready var trail_particles: CPUParticles2D = $CPUParticles2D
 
 @export_category("movment")
 @export var acceleration := 100
@@ -36,6 +37,15 @@ func _physics_process(delta: float) -> void:
 	
 	if jump_buffer_counter > 0:
 		jump_buffer_counter -= delta
+
+	if is_on_floor() and velocity != Vector2(0,0):
+		trail_particles.emitting = true
+		if velocity.x > 0:
+			trail_particles.direction.x = -1
+		if velocity.x < 0:
+			trail_particles.direction.x = 1
+	else:
+		trail_particles.emitting = false
 
 	if not is_on_floor():
 		velocity += gravity * delta
@@ -94,12 +104,14 @@ func reset_player() -> void:
 
 func take_damage(dmg: float):
 	health -= dmg
+	Global.screen_shake.emit(25)
 	sprite.play("Hurt")
 	LabelSpawns.display_number(dmg, global_position, 2)
 	$AudioStreamPlayer2D.play()
 	if health <= 0:
 		visible = false
 		can_control = false
+		velocity *= 0
 		
 		var tween = create_tween()
 		tween.tween_property(camera, "global_position", get_parent().level_start_pos.global_position, 2.5).set_ease(Tween.EASE_OUT)

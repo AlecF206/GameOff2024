@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4sadkto7mfgt"]
+[gd_scene load_steps=16 format=3 uid="uid://b4sadkto7mfgt"]
 
 [ext_resource type="Texture2D" uid="uid://caywhqji8to4l" path="res://assets/Chests.png" id="1_dkuga"]
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_hn43d"]
+[ext_resource type="AudioStream" uid="uid://3r6n15jb2h1v" path="res://assets/audio/PowerUp.wav" id="3_sn2ca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktmju"]
 atlas = ExtResource("1_dkuga")
@@ -105,5 +106,8 @@ autoplay = "GoldIdle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_spv37")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sn2ca")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

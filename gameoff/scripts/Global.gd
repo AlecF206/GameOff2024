@@ -1,6 +1,10 @@
 extends Node
 
 signal update_secrets
+@warning_ignore("unused_signal")
+signal screen_shake(str)
+
+var screenshake := true
 
 var secrets_found := 0:
 	set(val):

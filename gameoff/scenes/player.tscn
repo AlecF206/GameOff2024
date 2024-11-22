@@ -1,10 +1,12 @@
-[gd_scene load_steps=81 format=3 uid="uid://xa0sifmfniyq"]
+[gd_scene load_steps=83 format=3 uid="uid://xa0sifmfniyq"]
 
 [ext_resource type="Texture2D" uid="uid://b350h8mn38dvt" path="res://assets/Adventure_Character_Simple.png" id="1_wkh4x"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_yq2yk"]
 [ext_resource type="PackedScene" uid="uid://b1tqh21lid516" path="res://scenes/UIs/game_ui.tscn" id="3_jvsak"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_mkvk7"]
 [ext_resource type="AudioStream" uid="uid://cix3uyprd8g5v" path="res://assets/audio/GoreHit1.wav" id="4_m0bkq"]
 [ext_resource type="AudioStream" uid="uid://bm4021pkxc2ia" path="res://assets/audio/Jump.wav" id="5_3tkg1"]
+[ext_resource type="Gradient" uid="uid://caibdmijg5qhe" path="res://resources/BrickGradient.tres" id="7_akxeu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtvu5"]
 atlas = ExtResource("1_wkh4x")
@@ -617,6 +619,7 @@ polygon = PackedVector2Array(-6, -9, 3, -9, 5, -7, 5, 2, 5, 5, 4, 7, 4, 8, -5, 8
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+script = ExtResource("3_mkvk7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -647,7 +650,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -655,5 +658,17 @@ stream = ExtResource("4_m0bkq")
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_3tkg1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-1.06667, 7.73333)
+lifetime = 0.35
+direction = Vector2(-1, -0.35)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 25.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+color_initial_ramp = ExtResource("7_akxeu")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3gtib875d5tx"]
+[gd_scene load_steps=9 format=3 uid="uid://3gtib875d5tx"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_p66u3"]
 [ext_resource type="AudioStream" uid="uid://3r6n15jb2h1v" path="res://assets/audio/PowerUp.wav" id="2_keian"]
@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://cc07ycrfgkqc0" path="res://assets/audio/MysteriousTypeLoops/Mystery Unsolved.ogg" id="5_3dmvf"]
 [ext_resource type="AudioStream" uid="uid://bks0jce77jdl5" path="res://assets/audio/MysteriousTypeLoops/The Protagonist.ogg" id="6_pw21a"]
 [ext_resource type="AudioStream" uid="uid://dgr2uru053ai3" path="res://assets/audio/MysteriousTypeLoops/The Story Continues.ogg" id="7_q3fq8"]
+[ext_resource type="AudioStream" uid="uid://cgbkqfsk1bb1c" path="res://assets/audio/Click4.wav" id="8_av5pg"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_p66u3")
 
 [node name="Heal" type="AudioStreamPlayer" parent="."]
@@ -32,3 +34,6 @@ volume_db = -5.0
 [node name="Loop4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_q3fq8")
 volume_db = -5.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_av5pg")

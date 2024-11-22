@@ -9,8 +9,11 @@ extends Control
 @onready var leaderboard: VBoxContainer = $HBoxContainer2/LeaderboardContainer/Leaderboard
 @onready var line_edit: LineEdit = $HBoxContainer2/MilestoneScreen/LineEdit
 @onready var leaderboard_container: VBoxContainer = $HBoxContainer2/LeaderboardContainer
+@onready var settings: VBoxContainer = $HBoxContainer2/Settings
 
 @export var max_secrets := 4
+
+var milestone_showing := false
 
 const clock_black = preload("res://assets/AmuletOfTime/clock4.png")
 const clock = preload("res://resources/clock_animation.tres")
@@ -25,11 +28,16 @@ var time := 0:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("pause"):
+		if milestone_showing:
+				_on_continue_pressed()
+				return
 		if get_tree().paused == false:
 			leaderboard_container.show()
+			settings.show()
 			update_leaderboard(3)
 			get_tree().paused = true
 		else:
+			settings.hide()
 			leaderboard_container.hide()
 			get_tree().paused = false
 
@@ -60,7 +68,8 @@ func set_timer():
 	set_timer()
 
 func set_health(hp: float):
-	health_bar.value = hp + 10
+	var tween = get_tree().create_tween()
+	tween.tween_property(health_bar, "value", hp + 10, 0.2).set_ease(Tween.EASE_IN_OUT)
 
 func set_secrets():
 	secret_count.text = str(Global.secrets_found) + "/" + str(max_secrets)
@@ -68,6 +77,8 @@ func set_secrets():
 		get_tree().paused = true
 		milestone_screen.show()
 		leaderboard_container.show()
+		milestone_showing = true
+		await get_tree().create_timer(.05).timeout
 		milestone_label.text = "You Collected\n" + str(Global.secrets_found) + " Secrets In " + time_string + "!"
 		update_leaderboard(Global.secrets_found)
 
@@ -76,6 +87,7 @@ func _on_continue_pressed() -> void:
 	get_tree().paused = false
 	milestone_screen.hide()
 	leaderboard_container.hide()
+	milestone_showing = false
 
 func update_leaderboard(lnum : int):
 	for child in leaderboard.get_children():
@@ -111,3 +123,20 @@ func _on_button_3_pressed() -> void:
 
 func _on_button_4_pressed() -> void:
 	update_leaderboard(12)
+
+func _on_check_box_3_toggled(toggled_on: bool) -> void:
+	AudioManager.click()
+	match toggled_on:
+		true : DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		false: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _on_check_box_2_toggled(toggled_on: bool) -> void:
+	AudioManager.click()
+	AudioServer.set_bus_mute(0,toggled_on)
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	AudioManager.click()
+	Global.screenshake = toggled_on
+
+func _on_h_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value - 50)

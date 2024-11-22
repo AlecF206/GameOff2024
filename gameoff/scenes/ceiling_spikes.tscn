@@ -193,4 +193,8 @@ libraries = {
 }
 speed_scale = 0.25
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 153)
+scale = Vector2(9.6, 3.9)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

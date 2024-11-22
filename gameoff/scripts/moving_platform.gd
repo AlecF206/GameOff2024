@@ -17,3 +17,9 @@ func move():
 	await tween.finished
 	await get_tree().create_timer(end_wait_time, false).timeout
 	move()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.find_child("CPUParticles2D").hide()
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	body.find_child("CPUParticles2D").show()

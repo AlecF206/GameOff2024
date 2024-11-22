@@ -86,6 +86,33 @@ offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Settings" type="VBoxContainer" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer2/Settings"]
+layout_mode = 2
+button_pressed = true
+text = "Screen Shake"
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer2/Settings"]
+layout_mode = 2
+text = "Mute"
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer2/Settings"]
+layout_mode = 2
+text = "Full Screen"
+
+[node name="Label" type="Label" parent="HBoxContainer2/Settings"]
+layout_mode = 2
+text = "Master Audio:"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer2/Settings"]
+layout_mode = 2
+min_value = 25.0
+max_value = 75.0
+value = 50.0
+
 [node name="MilestoneScreen" type="VBoxContainer" parent="HBoxContainer2"]
 visible = false
 layout_mode = 2
@@ -138,6 +165,10 @@ text = "12 secrets"
 [node name="Leaderboard" type="VBoxContainer" parent="HBoxContainer2/LeaderboardContainer"]
 layout_mode = 2
 
+[connection signal="toggled" from="HBoxContainer2/Settings/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="HBoxContainer2/Settings/CheckBox2" to="." method="_on_check_box_2_toggled"]
+[connection signal="toggled" from="HBoxContainer2/Settings/CheckBox3" to="." method="_on_check_box_3_toggled"]
+[connection signal="value_changed" from="HBoxContainer2/Settings/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="HBoxContainer2/MilestoneScreen/Submit" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="HBoxContainer2/MilestoneScreen/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="HBoxContainer2/LeaderboardContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -24,5 +24,6 @@ func _input(event: InputEvent) -> void:
 		sprite.play("Press")
 		pressed.emit()
 		activated = true
+		$AudioStreamPlayer2D.play()
 		sprite.material.set_shader_parameter("line_thickness", 0)
 		label.hide()

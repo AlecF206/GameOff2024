@@ -11,5 +11,8 @@ func heal():
 func coin():
 	$Coin.play()
 
+func click():
+	$Click.play()
+
 func loop():
 	loops.pick_random().play()
