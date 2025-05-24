@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ngfnxba2alxx"]
 
-[ext_resource type="Script" path="res://scripts/trapdoor.gd" id="1_5uokh"]
+[ext_resource type="Script" uid="uid://5bcgfldbinb3" path="res://scripts/trapdoor.gd" id="1_5uokh"]
 [ext_resource type="Texture2D" uid="uid://ckv7cgv20hsg2" path="res://assets/Trapdoor.png" id="1_ckpqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsint"]

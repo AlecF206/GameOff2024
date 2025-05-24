@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://dxr5i82wfkif0"]
 
 [ext_resource type="Texture2D" uid="uid://cgp7kq5d37nir" path="res://assets/Large Jar - RED - Spritesheet.png" id="1_mtusq"]
-[ext_resource type="Script" path="res://scripts/health_pot.gd" id="1_togds"]
+[ext_resource type="Script" uid="uid://v6upo3vld6v4" path="res://scripts/health_pot.gd" id="1_togds"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vsxa"]
 atlas = ExtResource("1_mtusq")

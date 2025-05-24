@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgbvdxqd6n38b"]
 
 [ext_resource type="Texture2D" uid="uid://c1t7tne5mn8ue" path="res://assets/DungeonTraps/Suriken.png" id="1_4hgqy"]
-[ext_resource type="Script" path="res://scripts/shuriken.gd" id="1_735bp"]
+[ext_resource type="Script" uid="uid://nvt2djhabqyo" path="res://scripts/shuriken.gd" id="1_735bp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8sjf"]
 atlas = ExtResource("1_4hgqy")

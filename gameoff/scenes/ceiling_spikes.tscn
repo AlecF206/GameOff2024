@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://6pycmn0hwk5l"]
 
 [ext_resource type="Texture2D" uid="uid://cwctla1on2tcv" path="res://assets/Ceiling Trap - Level 1.png" id="1_n0wfw"]
-[ext_resource type="Script" path="res://scripts/ceiling_spikes.gd" id="1_pjd8l"]
+[ext_resource type="Script" uid="uid://cn1yow4feiobx" path="res://scripts/ceiling_spikes.gd" id="1_pjd8l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb2x5"]
 atlas = ExtResource("1_n0wfw")
@@ -169,8 +169,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ggy0"]
 _data = {
-"RESET": SubResource("Animation_d7xge"),
-"smash": SubResource("Animation_owqvw")
+&"RESET": SubResource("Animation_d7xge"),
+&"smash": SubResource("Animation_owqvw")
 }
 
 [node name="CeilingSpikes" type="Area2D"]

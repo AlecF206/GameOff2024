@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dss2cd5nrow1k"]
 
 [ext_resource type="Texture2D" uid="uid://20jkol60sy6o" path="res://assets/AltarBrick.png" id="1_0b4wk"]
-[ext_resource type="Script" path="res://scripts/speed_altar.gd" id="1_lgxga"]
+[ext_resource type="Script" uid="uid://cr5hn24seemnt" path="res://scripts/speed_altar.gd" id="1_lgxga"]
 [ext_resource type="AudioStream" uid="uid://bqwvw5jebyouy" path="res://assets/audio/Dash.wav" id="2_3n6id"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b70c6"]
@@ -131,8 +131,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drwxy"]
 _data = {
-"RESET": SubResource("Animation_vrno4"),
-"activate": SubResource("Animation_tsylw")
+&"RESET": SubResource("Animation_vrno4"),
+&"activate": SubResource("Animation_tsylw")
 }
 
 [node name="SpeedAltar" type="Area2D"]

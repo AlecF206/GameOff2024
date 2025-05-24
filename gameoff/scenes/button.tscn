@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://c4rbnbmo80iby"]
 
-[ext_resource type="Shader" path="res://resources/outline.gdshader" id="1_1ogjk"]
+[ext_resource type="Shader" uid="uid://cvpfptnpujdhi" path="res://resources/outline.gdshader" id="1_1ogjk"]
 [ext_resource type="Texture2D" uid="uid://sr48ls0d4dal" path="res://assets/ButtonPlatformer.png" id="1_7lrll"]
-[ext_resource type="Script" path="res://scripts/button.gd" id="1_jp71t"]
+[ext_resource type="Script" uid="uid://d17d644udupob" path="res://scripts/button.gd" id="1_jp71t"]
 [ext_resource type="AudioStream" uid="uid://cgbkqfsk1bb1c" path="res://assets/audio/Click4.wav" id="4_vrb0p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jwowi"]

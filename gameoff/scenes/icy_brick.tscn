@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm1e2esunf81o"]
 
-[ext_resource type="Script" path="res://scripts/icy_brick.gd" id="1_7gp0d"]
+[ext_resource type="Script" uid="uid://dt4ash4c2ftki" path="res://scripts/icy_brick.gd" id="1_7gp0d"]
 [ext_resource type="Texture2D" uid="uid://duhisln0syc8" path="res://assets/IcyBrick.png" id="1_0823c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fu7p1"]

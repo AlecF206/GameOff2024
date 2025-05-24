@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=4 uid="uid://6wg1xi2yrns5"]
 
 [ext_resource type="Texture2D" uid="uid://ccs4xa8vottg1" path="res://assets/PlatformerDungeonSet.png" id="1_2xk2h"]
-[ext_resource type="Script" path="res://scenes/level.gd" id="1_vmop4"]
+[ext_resource type="Script" uid="uid://c3jputqscrbya" path="res://scenes/level.gd" id="1_vmop4"]
 [ext_resource type="PackedScene" uid="uid://xa0sifmfniyq" path="res://scenes/player.tscn" id="2_svmhi"]
 [ext_resource type="PackedScene" uid="uid://tir36f347sf6" path="res://scenes/jumper_trap.tscn" id="3_v5l1n"]
 [ext_resource type="PackedScene" uid="uid://c5atmep03w6bv" path="res://scenes/spike_trap.tscn" id="4_e0ryh"]

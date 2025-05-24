@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c5atmep03w6bv"]
 
-[ext_resource type="Script" path="res://scripts/spike_trap.gd" id="1_3twri"]
+[ext_resource type="Script" uid="uid://ded16hv0r4ndq" path="res://scripts/spike_trap.gd" id="1_3twri"]
 [ext_resource type="Texture2D" uid="uid://c77puku48yjb3" path="res://assets/DungeonTraps/Spike_B.png" id="1_l2cb2"]
 [ext_resource type="AudioStream" uid="uid://r58eimorl8s" path="res://assets/audio/MysteriousTypeLoops/Spike.mp3" id="3_mxceh"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvomstd0radtx"]
 
 [ext_resource type="Texture2D" uid="uid://s7u1w8e2vtyl" path="res://assets/SpiderAltar.png" id="1_6g2ko"]
-[ext_resource type="Script" path="res://scripts/spider_altar.gd" id="1_qy6pm"]
+[ext_resource type="Script" uid="uid://0uv3p4nk8l60" path="res://scripts/spider_altar.gd" id="1_qy6pm"]
 
 [sub_resource type="Animation" id="Animation_vrno4"]
 length = 0.001
@@ -108,8 +108,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drwxy"]
 _data = {
-"RESET": SubResource("Animation_vrno4"),
-"activate": SubResource("Animation_tsylw")
+&"RESET": SubResource("Animation_vrno4"),
+&"activate": SubResource("Animation_tsylw")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8xt0"]

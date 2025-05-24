@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b4sadkto7mfgt"]
 
 [ext_resource type="Texture2D" uid="uid://caywhqji8to4l" path="res://assets/Chests.png" id="1_dkuga"]
-[ext_resource type="Script" path="res://scripts/chest.gd" id="1_hn43d"]
+[ext_resource type="Script" uid="uid://b5y4sifqkuh1n" path="res://scripts/chest.gd" id="1_hn43d"]
 [ext_resource type="AudioStream" uid="uid://3r6n15jb2h1v" path="res://assets/audio/PowerUp.wav" id="3_sn2ca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktmju"]

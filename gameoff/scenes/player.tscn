@@ -1,9 +1,9 @@
 [gd_scene load_steps=83 format=3 uid="uid://xa0sifmfniyq"]
 
 [ext_resource type="Texture2D" uid="uid://b350h8mn38dvt" path="res://assets/Adventure_Character_Simple.png" id="1_wkh4x"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_yq2yk"]
+[ext_resource type="Script" uid="uid://bta6j70cy5ylj" path="res://scripts/player.gd" id="1_yq2yk"]
 [ext_resource type="PackedScene" uid="uid://b1tqh21lid516" path="res://scenes/UIs/game_ui.tscn" id="3_jvsak"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_mkvk7"]
+[ext_resource type="Script" uid="uid://be7sfocsyw0xa" path="res://scripts/camera_2d.gd" id="3_mkvk7"]
 [ext_resource type="AudioStream" uid="uid://cix3uyprd8g5v" path="res://assets/audio/GoreHit1.wav" id="4_m0bkq"]
 [ext_resource type="AudioStream" uid="uid://bm4021pkxc2ia" path="res://assets/audio/Jump.wav" id="5_3tkg1"]
 [ext_resource type="Gradient" uid="uid://caibdmijg5qhe" path="res://resources/BrickGradient.tres" id="7_akxeu"]
